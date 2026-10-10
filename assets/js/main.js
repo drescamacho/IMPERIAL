@@ -52,26 +52,75 @@
 
   /* ---------- Noticias ---------- */
   var newsGrid = document.getElementById("news-grid");
+  var extIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>';
   if (newsGrid && cfg.news) {
     var fmt = new Intl.DateTimeFormat("es-ES", { day: "numeric", month: "long", year: "numeric" });
-    newsGrid.innerHTML = cfg.news.slice(0, 3).map(function (n, i) {
+    newsGrid.innerHTML = cfg.news.map(function (n, i) {
       var date = n.date ? fmt.format(new Date(n.date + "T12:00:00")) : "";
+      var media = n.image
+        ? '<div class="card__media"><img src="' + esc(n.image) + '" alt="" loading="lazy">'
+        : '<div class="card__media card__media--crest"><img src="assets/img/crest-white.png" alt="" loading="lazy">';
       return (
-        '<a class="card reveal" data-delay="' + i + '" href="' + esc(n.url || "#") + '">' +
-          '<div class="card__media">' +
-            '<img src="' + esc(n.image) + '" alt="" loading="lazy">' +
-            '<span class="card__cat">' + esc(n.category) + "</span>" +
-            (n.example ? '<span class="card__example">Contenido de ejemplo</span>' : "") +
+        '<a class="card reveal" data-delay="' + Math.min(i, 3) + '" href="' + esc(n.url || "#") + '" target="_blank" rel="noopener">' +
+          media +
+            '<span class="card__source">' + esc(n.source || n.category) + "</span>" +
+            '<span class="card__ext">' + extIcon + "</span>" +
           "</div>" +
           '<div class="card__body">' +
-            '<time class="card__date" datetime="' + esc(n.date) + '">' + esc(date) + "</time>" +
+            '<p class="card__date"><b>' + esc(n.category) + "</b>" + (date ? ' · <time datetime="' + esc(n.date) + '">' + esc(date) + "</time>" : "") + "</p>" +
             '<h3 class="card__title">' + esc(n.title) + "</h3>" +
-            (n.excerpt ? '<p class="card__excerpt">' + esc(n.excerpt) + "</p>" : "") +
-            '<span class="card__more">Leer noticia <i class="arrow"></i></span>' +
+            '<span class="card__more">Leer en ' + esc(n.source || "el medio") + ' <i class="arrow"></i></span>' +
           "</div>" +
         "</a>"
       );
     }).join("");
+
+    var prev = document.getElementById("news-prev");
+    var next = document.getElementById("news-next");
+    var bar = document.getElementById("news-bar");
+    function cardStep() {
+      var c = newsGrid.querySelector(".card");
+      return c ? c.getBoundingClientRect().width + parseFloat(getComputedStyle(newsGrid).columnGap || 24) : 300;
+    }
+    function updateSlider() {
+      var max = newsGrid.scrollWidth - newsGrid.clientWidth;
+      var ratio = max > 0 ? newsGrid.scrollLeft / max : 0;
+      var visible = newsGrid.scrollWidth ? newsGrid.clientWidth / newsGrid.scrollWidth : 1;
+      if (bar) {
+        bar.style.width = Math.min(100, visible * 100) + "%";
+        bar.style.transform = "translateX(" + (ratio * (1 / Math.min(1, visible) - 1) * 100) + "%)";
+      }
+      if (prev) prev.disabled = newsGrid.scrollLeft <= 4;
+      if (next) next.disabled = newsGrid.scrollLeft >= max - 4;
+    }
+    if (prev) prev.addEventListener("click", function () { newsGrid.scrollBy({ left: -cardStep() }); });
+    if (next) next.addEventListener("click", function () { newsGrid.scrollBy({ left: cardStep() }); });
+    newsGrid.addEventListener("scroll", updateSlider, { passive: true });
+    window.addEventListener("resize", updateSlider);
+    updateSlider();
+
+    // Arrastrar con el ratón (en táctil ya funciona de forma nativa)
+    var drag = null;
+    newsGrid.addEventListener("pointerdown", function (e) {
+      if (e.pointerType !== "mouse") return;
+      drag = { x: e.clientX, left: newsGrid.scrollLeft, moved: false };
+    });
+    window.addEventListener("pointermove", function (e) {
+      if (!drag) return;
+      var dx = e.clientX - drag.x;
+      if (Math.abs(dx) > 5 && !drag.moved) { drag.moved = true; newsGrid.classList.add("is-dragging"); }
+      if (drag.moved) newsGrid.scrollLeft = drag.left - dx;
+    });
+    window.addEventListener("pointerup", function () {
+      if (!drag) return;
+      var moved = drag.moved;
+      drag = null;
+      if (moved) {
+        newsGrid.classList.remove("is-dragging");
+        var step = cardStep();
+        newsGrid.scrollTo({ left: Math.round(newsGrid.scrollLeft / step) * step });
+      }
+    });
   }
 
   /* ---------- Patrocinadores ---------- */
@@ -157,21 +206,63 @@
     document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("is-visible"); });
   }
 
-  /* ---------- Parallax discreto ---------- */
-  var parallax = document.querySelector(".community__media img");
-  if (parallax && !reduceMotion) {
-    var ticking = false;
-    window.addEventListener("scroll", function () {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(function () {
-        var r = parallax.parentElement.getBoundingClientRect();
-        if (r.bottom > 0 && r.top < window.innerHeight) {
-          var p = (window.innerHeight - r.top) / (window.innerHeight + r.height);
-          parallax.style.transform = "translate3d(0," + (-p * 12) + "%,0)";
-        }
-        ticking = false;
-      });
-    }, { passive: true });
+  /* ---------- Efectos ligados al scroll ---------- */
+  var progress = document.getElementById("progress");
+  var heroImg = document.getElementById("hero-img");
+  var hero = document.querySelector(".hero");
+  var community = document.querySelector(".community__media img");
+  var speedEls = Array.prototype.slice.call(document.querySelectorAll("[data-speed]"));
+  var driftEls = Array.prototype.slice.call(document.querySelectorAll("[data-drift]"));
+  var mouseX = 0, mouseY = 0;
+
+  function frame() {
+    var y = window.scrollY, vh = window.innerHeight;
+    var docH = document.documentElement.scrollHeight - vh;
+    if (progress) progress.style.transform = "scaleX(" + (docH > 0 ? y / docH : 0) + ")";
+    if (reduceMotion) return;
+
+    if (hero && heroImg) {
+      var hh = hero.offsetHeight;
+      if (y < hh) {
+        var p = y / hh;
+        heroImg.parentElement.style.transform =
+          "translate3d(" + (mouseX * -14) + "px," + (y * 0.35 + mouseY * -10) + "px,0)";
+        heroImg.parentElement.style.opacity = String(1 - p * 0.6);
+      }
+    }
+    speedEls.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.bottom < -200 || r.top > vh + 200) return;
+      var offset = (r.top + r.height / 2 - vh / 2) * Number(el.dataset.speed);
+      el.style.transform = "translate3d(0," + offset + "px,0)";
+    });
+    driftEls.forEach(function (el) {
+      var r = el.parentElement.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > vh) return;
+      el.style.transform = "translate3d(" + (r.top * Number(el.dataset.drift)) + "px,0,0)";
+    });
+    if (community) {
+      var cr = community.parentElement.getBoundingClientRect();
+      if (cr.bottom > 0 && cr.top < vh) {
+        var cp = (vh - cr.top) / (vh + cr.height);
+        community.style.transform = "translate3d(0," + (-cp * 12) + "%,0)";
+      }
+    }
   }
+  var queued = false;
+  function requestFrame() {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(function () { queued = false; frame(); });
+  }
+  window.addEventListener("scroll", requestFrame, { passive: true });
+  window.addEventListener("resize", requestFrame);
+  if (hero && !reduceMotion && window.matchMedia("(pointer: fine)").matches) {
+    hero.addEventListener("mousemove", function (e) {
+      mouseX = e.clientX / window.innerWidth - 0.5;
+      mouseY = e.clientY / window.innerHeight - 0.5;
+      requestFrame();
+    });
+  }
+  frame();
 })();

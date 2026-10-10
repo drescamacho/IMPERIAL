@@ -8,17 +8,18 @@
   <meta name="theme-color" content="#0B0B0D">
   <meta property="og:title" content="CD Imperial · Del barrio al fútbol profesional">
   <meta property="og:description" content="Un club de raíces peruanas, nacido en Madrid, con una ambición que va más allá de las categorías.">
-  <meta property="og:image" content="assets/img/match-duel.jpg">
+  <meta property="og:image" content="assets/img/player-strike.jpg">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/png" href="assets/img/crest-red.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="assets/img/match-duel.jpg">
+  <link rel="preload" as="image" href="assets/img/player-strike.jpg">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Saltar al contenido</a>
+  <div class="progress" aria-hidden="true"><span id="progress"></span></div>
 
   <!-- ===== Barra institucional ===== -->
   <div class="topbar">
@@ -71,14 +72,16 @@
     <!-- ===== A. HERO ===== -->
     <section class="hero" id="inicio">
       <div class="hero__media">
-        <img src="assets/img/match-duel.jpg" alt="Jugador del CD Imperial disputando un balón aéreo durante un partido" class="hero__img">
+        <img src="assets/img/player-strike.jpg" alt="Jugador del CD Imperial a punto de golpear el balón junto a la grada con la pancarta de la afición" class="hero__img" id="hero-img">
       </div>
       <div class="hero__shade"></div>
       <div class="container hero__content">
         <p class="eyebrow reveal"><span class="eyebrow__line"></span>Madrid, España · Desde 2023</p>
-        <h1 class="hero__title reveal" data-delay="1">
-          <span>No nacimos grandes.</span>
-          <span>Nacimos para <em>construir</em> algo grande.</span>
+        <h1 class="hero__title" aria-label="No nacimos grandes. Nacimos para construir algo grande.">
+          <span class="line line--small" aria-hidden="true"><span>No nacimos grandes.</span></span>
+          <span class="line" aria-hidden="true"><span>Nacimos para</span></span>
+          <span class="line" aria-hidden="true"><span><em>construir</em> algo</span></span>
+          <span class="line" aria-hidden="true"><span>grande.</span></span>
         </h1>
         <p class="hero__lead reveal" data-delay="2">Un club de raíces peruanas, nacido en Madrid, con una ambición que va más allá de las categorías. Estamos construyendo nuestra historia desde cero.</p>
         <div class="hero__actions reveal" data-delay="3">
@@ -86,9 +89,19 @@
           <a href="#comunidad" class="btn btn--ghost">Únete al Imperial</a>
         </div>
       </div>
+      <div class="hero__side" aria-hidden="true"><span>Temporada 2026/27</span><span class="hero__side-line"></span><span>Segunda Aficionados</span></div>
+      <div class="hero__slash" aria-hidden="true"></div>
       <a href="#cifras" class="hero__scroll" aria-label="Bajar a la siguiente sección"><span></span></a>
       <img src="assets/img/crest-white.png" alt="" class="hero__watermark" aria-hidden="true">
     </section>
+
+    <!-- ===== Cinta en movimiento ===== -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <span>Del barrio al fútbol profesional</span><i></i><span>Raíces peruanas</span><i></i><span>Corazón madrileño</span><i></i><span>Desde 2023</span><i></i><span>Segunda Aficionados 2026/27</span><i></i>
+        <span>Del barrio al fútbol profesional</span><i></i><span>Raíces peruanas</span><i></i><span>Corazón madrileño</span><i></i><span>Desde 2023</span><i></i><span>Segunda Aficionados 2026/27</span><i></i>
+      </div>
+    </div>
 
     <!-- ===== B. CIFRAS ===== -->
     <section class="stats" id="cifras" aria-labelledby="stats-title">
@@ -120,15 +133,15 @@
         </div>
 
         <div class="collage">
-          <figure class="collage__item collage__item--kit reveal">
+          <figure class="collage__item collage__item--kit reveal reveal--wipe" data-speed="-0.06">
             <img src="assets/img/kit-home.jpg" alt="Equipación oficial del CD Imperial con Machu Picchu en el diseño" loading="lazy">
             <figcaption>Equipación oficial</figcaption>
           </figure>
-          <figure class="collage__item collage__item--back reveal" data-delay="1">
+          <figure class="collage__item collage__item--back reveal reveal--wipe" data-delay="1" data-speed="0.08">
             <img src="assets/img/player-back.jpg" alt="Jugador del CD Imperial de espaldas con el balón bajo la bota" loading="lazy">
             <figcaption>Primer equipo</figcaption>
           </figure>
-          <div class="collage__quote reveal" data-delay="2">
+          <div class="collage__quote reveal" data-delay="2" data-speed="0.14">
             <img src="assets/img/crest-white.png" alt="" aria-hidden="true">
             <p>“No estamos creando un equipo para jugar una temporada. Estamos construyendo un club para toda la vida.”</p>
           </div>
@@ -160,6 +173,7 @@
     <!-- ===== D. NUESTRA AMBICIÓN ===== -->
     <section class="ambition section" id="ambicion" aria-labelledby="ambition-title">
       <div class="ambition__pattern" aria-hidden="true"></div>
+      <div class="ambition__giant" aria-hidden="true"><span data-drift="-0.25">Imperial · Imperial · Imperial</span></div>
       <div class="container">
         <p class="kicker kicker--light reveal">Nuestra ambición</p>
         <h2 id="ambition-title" class="title title--light reveal" data-delay="1">El objetivo está claro.</h2>
@@ -198,7 +212,7 @@
     <!-- ===== E. COMUNIDAD ===== -->
     <section class="community" id="comunidad" aria-labelledby="community-title">
       <div class="community__media">
-        <img src="assets/img/player-strike.jpg" alt="Jugador del CD Imperial golpeando el balón junto a la grada con la pancarta de la afición" loading="lazy">
+        <img src="assets/img/match-duel.jpg" alt="Jugador del CD Imperial disputando un balón aéreo durante un partido" loading="lazy">
       </div>
       <div class="community__shade"></div>
       <div class="container community__content">
@@ -228,12 +242,16 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <p class="kicker reveal">Actualidad</p>
+            <p class="kicker reveal">El Imperial en los medios</p>
             <h2 id="news-title" class="title reveal" data-delay="1">Noticias destacadas</h2>
           </div>
-          <a href="#noticias" class="link-arrow reveal" data-delay="2">Todas las noticias <i class="arrow"></i></a>
+          <div class="slider-nav reveal" data-delay="2">
+            <button class="slider-btn" id="news-prev" aria-label="Noticia anterior"><i class="arrow arrow--left"></i></button>
+            <button class="slider-btn" id="news-next" aria-label="Noticia siguiente"><i class="arrow"></i></button>
+          </div>
         </div>
-        <div class="news__grid" id="news-grid"><!-- generado por main.js --></div>
+        <div class="news__track" id="news-grid" tabindex="0" aria-label="Noticias sobre el CD Imperial"><!-- generado por main.js --></div>
+        <div class="news__bar" aria-hidden="true"><span id="news-bar"></span></div>
       </div>
     </section>
 

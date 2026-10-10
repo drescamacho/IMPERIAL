@@ -42,35 +42,49 @@ window.IMPERIAL_CONFIG = {
     { value: 10, prefix: "+", suffix: "K", label: "Comunidad en Instagram", note: "Cifra aproximada · pendiente de actualización" },
   ],
 
-  // Noticias destacadas (se muestran las 3 primeras).
-  // example: true => se marca como contenido de ejemplo hasta publicar noticias reales.
+  // Noticias destacadas: el club en los medios (enlaces externos).
+  // date es opcional (AAAA-MM-DD); si falta, se muestra solo el medio.
+  // image vacía => portada roja con el escudo.
   news: [
     {
-      category: "Primer equipo",
-      date: "2026-10-04",
-      title: "Arranca la primera temporada federada del Imperial en Segunda Aficionados",
-      excerpt: "El primer equipo inicia su camino en la RFFM con el Polideportivo Ernesto Cotorruelo como casa.",
-      image: "assets/img/player-strike.jpg",
-      url: "#",
-      example: true,
-    },
-    {
-      category: "Club",
-      date: "2026-09-20",
-      title: "Así es la equipación oficial: Machu Picchu en el pecho, Madrid en el corazón",
-      excerpt: "Una camiseta que cuenta de dónde venimos y hacia dónde vamos.",
+      source: "El Comercio",
+      category: "Prensa · Perú",
+      date: "",
+      title: "CD Imperial: lo fundaron dos peruanos en España, tienen a Machu Picchu en el escudo y quieren ascender a LaLiga",
       image: "assets/img/kit-home.jpg",
-      url: "#",
-      example: true,
+      url: "https://elcomercio.pe/deporte-total/peruanos-en-el-mundo/cd-imperial-lo-fundaron-dos-peruanos-en-espana-tienen-a-machu-picchu-en-el-escudo-y-quieren-ascender-a-laliga-de-vinicius-y-kylian-mbappe-noticia/",
     },
     {
-      category: "Comunidad",
-      date: "2026-09-12",
-      title: "Imperial también eres tú: abrimos la comunidad oficial de aficionados",
-      excerpt: "Únete para seguir partidos, convocatorias y la vida del club desde dentro.",
+      source: "La República",
+      category: "Prensa · Perú",
+      date: "2024-07-12",
+      title: "El equipo de fútbol peruano en España que se coronó campeón de su categoría",
       image: "assets/img/player-back.jpg",
-      url: "#",
-      example: true,
+      url: "https://larepublica.pe/deportes/2024/07/12/este-es-el-unico-equipo-de-futbol-espanol-que-solo-acepta-peruanos-son-campeones-de-segunda-division-en-la-liga-espanola-evat-125736",
+    },
+    {
+      source: "Exitosa",
+      category: "Prensa · Perú",
+      date: "",
+      title: "De pichangas a soñar con LaLiga: el Club Imperial busca llevar el nombre del Perú a la élite del fútbol español",
+      image: "assets/img/match-duel.jpg",
+      url: "https://www.exitosanoticias.pe/deportes/de-pichangas-sonar-laliga-club-imperial-busca-llevar-nombre-peru-elite-futbol-espanol-n169507",
+    },
+    {
+      source: "Los Profes del Fútbol",
+      category: "Prensa",
+      date: "2026-09-26",
+      title: "Club Deportivo Imperial: el proyecto peruano que crece en el fútbol de Madrid",
+      image: "assets/img/player-strike.jpg",
+      url: "https://www.losprofesdelfutbol.com/2026/09/26/club-deportivo-imperial-madrid-futbol-espana/",
+    },
+    {
+      source: "Infomercado",
+      category: "Prensa · Perú",
+      date: "",
+      title: "Los estudiantes peruanos que formaron su propio club de fútbol en España",
+      image: "",
+      url: "https://infomercado.pe/deportivo-toque-fino-los-estudiantes-peruanos-que-formaron-su-club-de-futbol-en-espana/",
     },
   ],
 
