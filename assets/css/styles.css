@@ -267,15 +267,8 @@ main { overflow-x: clip; }
   .values { justify-content: flex-start; gap: 10px 20px; }
 }
 
-/* ---------- Cita ---------- */
-.quote { background: var(--light); padding-block: clamp(80px, 10vw, 144px); }
-.quote__inner { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
-.quote__crest { width: clamp(44px, 5vw, 64px); }
-.quote blockquote p { font-family: var(--f-editorial); font-style: italic; font-weight: 500; font-size: clamp(30px, 4.2vw, 60px); line-height: 1.12; letter-spacing: -.01em; max-width: 22ch; text-wrap: balance; }
-.quote blockquote em { color: var(--red); }
-@media (max-width: 620px) { .quote__inner { grid-template-columns: 1fr; } }
-
 /* ---------- Identidad ---------- */
+.mv.section { padding-top: 0; }
 .mv__grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1fr); gap: clamp(48px, 8vw, 128px); align-items: start; }
 .mv__media { position: sticky; top: 110px; overflow: hidden; background: var(--black); }
 .mv__media img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; transition: transform 1.4s var(--ease); }
