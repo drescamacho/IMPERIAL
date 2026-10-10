@@ -27,8 +27,8 @@ window.IMPERIAL_CONFIG = {
     youtube: "https://www.youtube.com/@cd_imperial",
     // Comunidad oficial de WhatsApp (botón "Unirme a la comunidad").
     whatsapp: "https://chat.whatsapp.com/JszywmLwosSGKvacQMbRnj",
-    // PENDIENTE: email de patrocinios. Vacío = mensaje directo de Instagram.
-    sponsorEmail: "",
+    // WhatsApp del club para patrocinios y colaboraciones.
+    sponsorWhatsapp: "https://wa.me/34692254922",
   },
 
   // Cifras de "Nuestra historia en cifras".

@@ -269,11 +269,22 @@
     <section class="partners section" id="patrocinadores" aria-labelledby="sponsors-title">
       <div class="container">
         <div class="partners__head">
-          <div>
+          <div class="partners__intro">
             <p class="label reveal">Patrocinio y colaboraciones</p>
-            <h2 id="sponsors-title" class="title reveal" data-delay="1">Empresas que creen en nuestro camino.</h2>
+            <h2 id="sponsors-title" class="title partners__title reveal" data-delay="1">Empresas que creen <span>en nuestro camino.</span></h2>
+            <p class="partners__lead reveal" data-delay="2">Marcas que ya forman parte de la historia del Imperial. Hay sitio para la tuya, como patrocinador o como empresa colaboradora.</p>
           </div>
-          <p class="partners__lead reveal" data-delay="2">Marcas que ya forman parte de la historia del Imperial. Hay sitio para la tuya: como patrocinador o como empresa colaboradora.</p>
+
+          <aside class="partners__card reveal" data-delay="2" aria-label="Marcas aliadas">
+            <div class="partners__card-top">
+              <p class="partners__count"><span id="partners-count">04</span></p>
+              <p class="partners__count-label">Marcas aliadas<br>temporada 2026/27</p>
+            </div>
+            <ul class="partners__chips" id="partners-chips"><!-- generado por main.js --></ul>
+            <p class="partners__card-text">Visibilidad en el campo, en redes y en una comunidad que crece cada semana.</p>
+            <a href="#" class="btn btn--red js-sponsor-cta partners__card-btn" data-msg="Hola, me gustaría información para unir mi marca al CD Imperial." target="_blank" rel="noopener">Únete como marca <i class="arrow"></i></a>
+            <span class="partners__card-note"><i></i>Respuesta directa por WhatsApp</span>
+          </aside>
         </div>
       </div>
 
@@ -299,7 +310,7 @@
               <li>Contenido en Instagram, TikTok y YouTube</li>
               <li>Visibilidad en partidos, eventos y web oficial</li>
             </ul>
-            <a href="#" class="path__cta js-sponsor-cta" target="_blank" rel="noopener">Quiero patrocinar <span class="path__circle"><i class="arrow"></i></span></a>
+            <a href="#" class="path__cta js-sponsor-cta" data-msg="Hola, me interesa patrocinar al CD Imperial." target="_blank" rel="noopener">Quiero patrocinar <span class="path__circle"><i class="arrow"></i></span></a>
           </article>
           <article class="path reveal" data-delay="1">
             <p class="path__tag">02 · Empresa colaboradora</p>
@@ -310,7 +321,7 @@
               <li>Ventajas para aficionados y jugadores</li>
               <li>Acciones conjuntas con la comunidad</li>
             </ul>
-            <a href="#" class="path__cta js-sponsor-cta" target="_blank" rel="noopener">Quiero colaborar <span class="path__circle"><i class="arrow"></i></span></a>
+            <a href="#" class="path__cta js-sponsor-cta" data-msg="Hola, me interesa colaborar con el CD Imperial como empresa." target="_blank" rel="noopener">Quiero colaborar <span class="path__circle"><i class="arrow"></i></span></a>
           </article>
         </div>
 

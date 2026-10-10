@@ -127,9 +127,11 @@
   }
 
   /* ---------- Patrocinadores ---------- */
-  var sponsorCta = links.sponsorEmail
-    ? "mailto:" + links.sponsorEmail + "?subject=" + encodeURIComponent("Patrocinio CD Imperial")
-    : "https://ig.me/m/cd_imperial";
+  var sponsorBase = links.sponsorWhatsapp || "https://ig.me/m/cd_imperial";
+  function sponsorLink(msg) {
+    return msg && links.sponsorWhatsapp ? sponsorBase + "?text=" + encodeURIComponent(msg) : sponsorBase;
+  }
+  var sponsorCta = sponsorLink("Hola, me gustaría que mi marca forme parte del CD Imperial.");
   var sponsorsTrack = document.getElementById("sponsors-grid");
   if (sponsorsTrack) {
     var logos = (cfg.sponsors || []).map(function (s) {
@@ -148,9 +150,16 @@
     sponsorsTrack.innerHTML = half + half.replace(/<a /g, '<a tabindex="-1" aria-hidden="true" ');
   }
   document.querySelectorAll(".js-sponsor-cta").forEach(function (a) {
-    a.href = sponsorCta;
-    if (links.sponsorEmail) a.removeAttribute("target");
+    a.href = a.dataset.msg ? sponsorLink(a.dataset.msg) : sponsorCta;
   });
+  var partnersCount = document.getElementById("partners-count");
+  if (partnersCount) partnersCount.textContent = pad((cfg.sponsors || []).length);
+  var partnersChips = document.getElementById("partners-chips");
+  if (partnersChips) {
+    partnersChips.innerHTML = (cfg.sponsors || []).map(function (s) {
+      return '<li><img src="' + esc(s.logo) + '" alt="' + esc(s.name) + '" title="' + esc(s.name) + '" loading="lazy"></li>';
+    }).join("") + '<li class="chip-add" aria-hidden="true">+</li>';
+  }
 
   var rotator = document.getElementById("rotator");
   if (rotator && !reduceMotion) {
