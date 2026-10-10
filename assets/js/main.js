@@ -64,11 +64,10 @@
       return (
         '<a class="card reveal" data-delay="' + Math.min(i, 3) + '" href="' + esc(n.url || "#") + '" target="_blank" rel="noopener">' +
           media +
-            '<span class="card__source">' + esc(n.source || n.category) + "</span>" +
             '<span class="card__ext">' + extIcon + "</span>" +
           "</div>" +
           '<div class="card__body">' +
-            '<p class="card__date"><b>' + esc(n.category) + "</b>" + (date ? ' · <time datetime="' + esc(n.date) + '">' + esc(date) + "</time>" : "") + "</p>" +
+            '<p class="card__date"><b>' + esc(n.source || "Prensa") + "</b>" + (n.category ? " · " + esc(n.category) : "") + (date ? ' · <time datetime="' + esc(n.date) + '">' + esc(date) + "</time>" : "") + "</p>" +
             '<h3 class="card__title">' + esc(n.title) + "</h3>" +
             '<span class="card__more">Leer en ' + esc(n.source || "el medio") + ' <i class="arrow"></i></span>' +
           "</div>" +

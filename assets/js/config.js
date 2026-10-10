@@ -44,46 +44,46 @@ window.IMPERIAL_CONFIG = {
 
   // Noticias destacadas: el club en los medios (enlaces externos).
   // date es opcional (AAAA-MM-DD); si falta, se muestra solo el medio.
-  // image vacía => portada roja con el escudo.
+  // image: portada cuadrada (900x900). Vacía => portada negra con el escudo.
   news: [
     {
       source: "El Comercio",
-      category: "Prensa · Perú",
+      category: "Perú",
       date: "",
       title: "CD Imperial: lo fundaron dos peruanos en España, tienen a Machu Picchu en el escudo y quieren ascender a LaLiga",
-      image: "assets/img/kit-home.jpg",
+      image: "assets/img/prensa/elcomercio.webp",
       url: "https://elcomercio.pe/deporte-total/peruanos-en-el-mundo/cd-imperial-lo-fundaron-dos-peruanos-en-espana-tienen-a-machu-picchu-en-el-escudo-y-quieren-ascender-a-laliga-de-vinicius-y-kylian-mbappe-noticia/",
     },
     {
       source: "La República",
-      category: "Prensa · Perú",
+      category: "Perú",
       date: "2024-07-12",
       title: "El equipo de fútbol peruano en España que se coronó campeón de su categoría",
-      image: "assets/img/player-back.jpg",
+      image: "assets/img/prensa/larepublica.webp",
       url: "https://larepublica.pe/deportes/2024/07/12/este-es-el-unico-equipo-de-futbol-espanol-que-solo-acepta-peruanos-son-campeones-de-segunda-division-en-la-liga-espanola-evat-125736",
     },
     {
       source: "Exitosa",
-      category: "Prensa · Perú",
+      category: "Perú",
       date: "",
       title: "De pichangas a soñar con LaLiga: el Club Imperial busca llevar el nombre del Perú a la élite del fútbol español",
-      image: "assets/img/match-duel.jpg",
+      image: "assets/img/prensa/exitosa.webp",
       url: "https://www.exitosanoticias.pe/deportes/de-pichangas-sonar-laliga-club-imperial-busca-llevar-nombre-peru-elite-futbol-espanol-n169507",
     },
     {
       source: "Los Profes del Fútbol",
-      category: "Prensa",
+      category: "",
       date: "2026-09-26",
-      title: "Club Deportivo Imperial: el proyecto peruano que crece en el fútbol de Madrid",
-      image: "assets/img/player-strike.jpg",
+      title: "Club Deportivo Imperial: el sueño peruano que comienza a jugarse en el fútbol español",
+      image: "assets/img/prensa/losprofes.webp",
       url: "https://www.losprofesdelfutbol.com/2026/09/26/club-deportivo-imperial-madrid-futbol-espana/",
     },
     {
       source: "Infomercado",
-      category: "Prensa · Perú",
+      category: "Perú",
       date: "",
-      title: "Los estudiantes peruanos que formaron su propio club de fútbol en España",
-      image: "",
+      title: "Club Deportivo Imperial: los estudiantes peruanos que formaron su club de fútbol en España",
+      image: "assets/img/prensa/infomercado.webp",
       url: "https://infomercado.pe/deportivo-toque-fino-los-estudiantes-peruanos-que-formaron-su-club-de-futbol-en-espana/",
     },
   ],
