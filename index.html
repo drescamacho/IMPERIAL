@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" href="assets/img/crest-red.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,500&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/img/player-strike.jpg">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -21,31 +21,12 @@
   <a class="skip-link" href="#main">Saltar al contenido</a>
   <div class="progress" aria-hidden="true"><span id="progress"></span></div>
 
-  <!-- ===== Barra institucional ===== -->
-  <div class="topbar">
-    <div class="container topbar__inner">
-      <span class="topbar__item"><span class="dot"></span> Temporada 2026/27 · Segunda Aficionados · RFFM</span>
-      <span class="topbar__item topbar__item--hide-sm">Polideportivo Ernesto Cotorruelo · Madrid</span>
-      <nav class="topbar__social" aria-label="Redes sociales">
-        <a href="https://www.instagram.com/cd_imperial/" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" class="fill"/></svg>
-        </a>
-        <a href="https://www.tiktok.com/@cd_imperial" target="_blank" rel="noopener" aria-label="TikTok">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.8 2.4 4.6 5 5"/></svg>
-        </a>
-        <a href="https://www.youtube.com/@cd_imperial" target="_blank" rel="noopener" aria-label="YouTube">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.5v5l4.5-2.5z" class="fill"/></svg>
-        </a>
-      </nav>
-    </div>
-  </div>
-
-  <!-- ===== Cabecera / navegación ===== -->
+  <!-- ===== Cabecera ===== -->
   <header class="header" id="header">
     <div class="container header__inner">
       <a href="#inicio" class="brand" aria-label="CD Imperial, inicio">
-        <img src="assets/img/crest-white.png" alt="" width="40" height="53" class="brand__crest">
-        <span class="brand__name">CD Imperial<small>Madrid · Desde 2023</small></span>
+        <img src="assets/img/crest-white.png" alt="" width="34" height="45" class="brand__crest">
+        <span class="brand__name">CD Imperial</span>
       </a>
 
       <nav class="nav" id="nav" aria-label="Principal">
@@ -55,10 +36,15 @@
           <li><a href="#comunidad">Comunidad</a></li>
           <li><a href="#noticias">Noticias</a></li>
           <li><a href="#patrocinadores">Patrocinio</a></li>
-          <li><span class="nav__soon" title="Próximamente">Cantera <em>Pronto</em></span></li>
-          <li><span class="nav__soon" title="Próximamente">Tienda <em>Pronto</em></span></li>
+          <li><span class="nav__soon">Cantera <em>Pronto</em></span></li>
+          <li><span class="nav__soon">Tienda <em>Pronto</em></span></li>
         </ul>
-        <a href="#comunidad" class="btn btn--red btn--sm nav__cta">Únete al Imperial</a>
+        <div class="nav__social">
+          <a href="https://www.instagram.com/cd_imperial/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@cd_imperial" target="_blank" rel="noopener">TikTok</a>
+          <a href="https://www.youtube.com/@cd_imperial" target="_blank" rel="noopener">YouTube</a>
+        </div>
+        <a href="#comunidad" class="btn btn--light btn--sm nav__cta">Únete al Imperial</a>
       </nav>
 
       <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
@@ -75,40 +61,58 @@
         <img src="assets/img/player-strike.jpg" alt="Jugador del CD Imperial a punto de golpear el balón junto a la grada con la pancarta de la afición" class="hero__img" id="hero-img">
       </div>
       <div class="hero__shade"></div>
+
       <div class="container hero__content">
-        <p class="eyebrow reveal"><span class="eyebrow__line"></span>Madrid, España · Desde 2023</p>
+        <p class="eyebrow hero__in" style="--d:.1s">Madrid, España <span class="sep"></span> Desde 2023</p>
         <h1 class="hero__title" aria-label="No nacimos grandes. Nacimos para construir algo grande.">
-          <span class="line line--small" aria-hidden="true"><span>No nacimos grandes.</span></span>
+          <span class="line line--pre" aria-hidden="true"><span>No nacimos grandes.</span></span>
           <span class="line" aria-hidden="true"><span>Nacimos para</span></span>
-          <span class="line" aria-hidden="true"><span><em>construir</em> algo</span></span>
-          <span class="line" aria-hidden="true"><span>grande.</span></span>
+          <span class="line" aria-hidden="true"><span><em>construir</em> algo grande.</span></span>
         </h1>
-        <p class="hero__lead reveal" data-delay="2">Un club de raíces peruanas, nacido en Madrid, con una ambición que va más allá de las categorías. Estamos construyendo nuestra historia desde cero.</p>
-        <div class="hero__actions reveal" data-delay="3">
-          <a href="#proyecto" class="btn btn--red">Conoce nuestra historia <i class="arrow"></i></a>
-          <a href="#comunidad" class="btn btn--ghost">Únete al Imperial</a>
+        <div class="hero__foot">
+          <p class="hero__lead hero__in" style="--d:.8s">Un club de raíces peruanas, nacido en Madrid, con una ambición que va más allá de las categorías. Estamos construyendo nuestra historia desde cero.</p>
+          <div class="hero__actions hero__in" style="--d:.95s">
+            <a href="#proyecto" class="btn btn--red">Conoce nuestra historia <i class="arrow"></i></a>
+            <a href="#comunidad" class="btn btn--ghost">Únete al Imperial</a>
+          </div>
         </div>
       </div>
-      <div class="hero__side" aria-hidden="true"><span>Temporada 2026/27</span><span class="hero__side-line"></span><span>Segunda Aficionados</span></div>
-      <div class="hero__slash" aria-hidden="true"></div>
-      <a href="#cifras" class="hero__scroll" aria-label="Bajar a la siguiente sección"><span></span></a>
-      <img src="assets/img/crest-white.png" alt="" class="hero__watermark" aria-hidden="true">
+
+      <div class="hero__bar hero__in" style="--d:1.1s">
+        <div class="container hero__bar-inner">
+          <dl class="hero__facts">
+            <div><dt>Temporada</dt><dd>2026/27</dd></div>
+            <div><dt>Categoría</dt><dd>Segunda Aficionados</dd></div>
+            <div class="hide-sm"><dt>Sede</dt><dd>Polideportivo Ernesto Cotorruelo</dd></div>
+          </dl>
+          <a href="#manifiesto" class="hero__scroll" aria-label="Bajar a la siguiente sección"><span></span></a>
+        </div>
+      </div>
     </section>
 
-    <!-- ===== Cinta en movimiento ===== -->
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker__track">
-        <span>Del barrio al fútbol profesional</span><i></i><span>Raíces peruanas</span><i></i><span>Corazón madrileño</span><i></i><span>Desde 2023</span><i></i><span>Segunda Aficionados 2026/27</span><i></i>
-        <span>Del barrio al fútbol profesional</span><i></i><span>Raíces peruanas</span><i></i><span>Corazón madrileño</span><i></i><span>Desde 2023</span><i></i><span>Segunda Aficionados 2026/27</span><i></i>
+    <!-- ===== Manifiesto en movimiento (sustituye a la cinta) ===== -->
+    <section class="manifesto" id="manifiesto" aria-label="Lemas del club">
+      <div class="manifesto__row" data-marquee="1">
+        <div class="manifesto__track">
+          <span>Del barrio</span><i class="chakana"></i><span class="o">al fútbol profesional</span><i class="chakana"></i>
+          <span>Del barrio</span><i class="chakana"></i><span class="o">al fútbol profesional</span><i class="chakana"></i>
+          <span>Del barrio</span><i class="chakana"></i><span class="o">al fútbol profesional</span><i class="chakana"></i>
+        </div>
       </div>
-    </div>
+      <div class="manifesto__row" data-marquee="-1">
+        <div class="manifesto__track">
+          <span class="o">Raíces peruanas</span><i class="chakana"></i><span>Corazón madrileño</span><i class="chakana"></i><span class="o">Desde 2023</span><i class="chakana"></i>
+          <span class="o">Raíces peruanas</span><i class="chakana"></i><span>Corazón madrileño</span><i class="chakana"></i><span class="o">Desde 2023</span><i class="chakana"></i>
+          <span class="o">Raíces peruanas</span><i class="chakana"></i><span>Corazón madrileño</span><i class="chakana"></i><span class="o">Desde 2023</span><i class="chakana"></i>
+        </div>
+      </div>
+    </section>
 
     <!-- ===== B. CIFRAS ===== -->
     <section class="stats" id="cifras" aria-labelledby="stats-title">
       <div class="container">
-        <h2 id="stats-title" class="sr-only">Nuestra historia en cifras</h2>
         <div class="stats__head reveal">
-          <p class="kicker">Nuestra historia en cifras</p>
+          <h2 id="stats-title" class="label label--light">Nuestra historia en cifras</h2>
           <p class="editorial">Cada número es solo el comienzo.</p>
         </div>
         <div class="stats__grid" id="stats-grid"><!-- generado por main.js --></div>
@@ -119,120 +123,134 @@
     <section class="project section" id="proyecto" aria-labelledby="project-title">
       <div class="container project__grid">
         <div class="project__text">
-          <p class="kicker reveal">Un proyecto diferente</p>
-          <h2 id="project-title" class="title reveal" data-delay="1">Más que un club.<br><span class="text-red">Una historia</span> en construcción.</h2>
+          <p class="label reveal">Un proyecto diferente</p>
+          <h2 id="project-title" class="title reveal" data-delay="1">Más que un club. <span class="text-red">Una historia</span> en construcción.</h2>
           <div class="project__body reveal" data-delay="2">
             <p>El CD Imperial nació de una idea sencilla, pero extraordinariamente ambiciosa: construir una institución de fútbol desde sus cimientos y recorrer el camino hacia las categorías profesionales del fútbol español.</p>
             <p>Con raíces peruanas y espíritu madrileño, somos un proyecto que une deporte, identidad, comunidad y oportunidades.</p>
           </div>
-          <ul class="values reveal" data-delay="3" aria-label="Valores del club">
-            <li>Disciplina</li><li>Ambición</li><li>Identidad</li><li>Respeto</li>
-            <li>Compromiso</li><li>Comunidad</li><li>Perseverancia</li><li>Profesionalismo</li>
-          </ul>
-          <a href="#ambicion" class="btn btn--dark reveal" data-delay="3">Descubre el proyecto <i class="arrow"></i></a>
+          <a href="#ambicion" class="link-arrow reveal" data-delay="3">Descubre el proyecto <i class="arrow"></i></a>
         </div>
 
-        <div class="collage">
-          <figure class="collage__item collage__item--kit reveal reveal--wipe" data-speed="-0.06">
-            <img src="assets/img/kit-home.jpg" alt="Equipación oficial del CD Imperial con Machu Picchu en el diseño" loading="lazy">
-            <figcaption>Equipación oficial</figcaption>
-          </figure>
-          <figure class="collage__item collage__item--back reveal reveal--wipe" data-delay="1" data-speed="0.08">
-            <img src="assets/img/player-back.jpg" alt="Jugador del CD Imperial de espaldas con el balón bajo la bota" loading="lazy">
-            <figcaption>Primer equipo</figcaption>
-          </figure>
-          <div class="collage__quote reveal" data-delay="2" data-speed="0.14">
-            <img src="assets/img/crest-white.png" alt="" aria-hidden="true">
-            <p>“No estamos creando un equipo para jugar una temporada. Estamos construyendo un club para toda la vida.”</p>
+        <figure class="film reveal" data-delay="1">
+          <div class="film__frame">
+            <video id="film" class="film__video" autoplay muted loop playsinline preload="metadata" poster="assets/video/salida-campo-poster.jpg" aria-label="Jugadores del CD Imperial subiendo las escaleras hacia el campo">
+              <source src="assets/video/salida-campo.webm" type="video/webm">
+              <source src="assets/video/salida-campo.mp4" type="video/mp4">
+            </video>
+            <div class="film__shade" aria-hidden="true"></div>
+            <span class="film__rec" aria-hidden="true"><i></i>Salida al campo</span>
+            <button class="film__toggle" id="film-toggle" aria-label="Pausar vídeo">
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="i-pause"><path d="M8 5v14M16 5v14"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="i-play"><path d="M7 5l12 7-12 7z"/></svg>
+            </button>
+            <div class="film__progress" aria-hidden="true"><span id="film-progress"></span></div>
           </div>
-        </div>
+          <figcaption class="film__caption">
+            <span>Primer equipo</span>
+            <span>Temporada 2026/27</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="container">
+        <ul class="values reveal" aria-label="Valores del club">
+          <li>Disciplina</li><li>Ambición</li><li>Identidad</li><li>Respeto</li>
+          <li>Compromiso</li><li>Comunidad</li><li>Perseverancia</li><li>Profesionalismo</li>
+        </ul>
       </div>
     </section>
 
-    <!-- ===== Misión / visión ===== -->
-    <section class="mv" aria-label="Propósito, misión y visión">
+    <!-- ===== Cita ===== -->
+    <section class="quote" aria-label="Lema del club">
+      <div class="container quote__inner">
+        <img src="assets/img/crest-red.png" alt="" aria-hidden="true" class="quote__crest reveal">
+        <blockquote class="reveal" data-delay="1">
+          <p>No estamos creando un equipo para jugar una temporada. Estamos construyendo un club <em>para toda la vida.</em></p>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ===== Propósito, misión y visión ===== -->
+    <section class="mv section" aria-labelledby="mv-title">
       <div class="container mv__grid">
-        <article class="mv__item reveal">
-          <span class="mv__num">01</span>
-          <h3>Propósito</h3>
-          <p>Construir desde cero una institución deportiva capaz de competir en las categorías superiores del fútbol español, desarrollar talento, unir comunidades y generar oportunidades mediante el deporte.</p>
-        </article>
-        <article class="mv__item reveal" data-delay="1">
-          <span class="mv__num">02</span>
-          <h3>Misión</h3>
-          <p>Desarrollar una institución deportiva competitiva, sostenible e inclusiva, que promueva la formación futbolística, la integración comunitaria y el crecimiento de jóvenes talentos.</p>
-        </article>
-        <article class="mv__item reveal" data-delay="2">
-          <span class="mv__num">03</span>
-          <h3>Visión</h3>
-          <p>Convertir al CD Imperial en una institución de referencia dentro del fútbol español, reconocida por su identidad, cantera, competitividad, comunidad y aspiración de alcanzar el fútbol profesional.</p>
-        </article>
+        <figure class="mv__media reveal">
+          <img src="assets/img/kit-home.jpg" alt="Equipación oficial del CD Imperial con Machu Picchu en el diseño" loading="lazy">
+          <figcaption>Equipación oficial 2026/27</figcaption>
+        </figure>
+        <div class="mv__list">
+          <h2 id="mv-title" class="label reveal">Identidad</h2>
+          <article class="mv__item reveal">
+            <h3>Propósito</h3>
+            <p>Construir desde cero una institución deportiva capaz de competir en las categorías superiores del fútbol español, desarrollar talento, unir comunidades y generar oportunidades mediante el deporte.</p>
+          </article>
+          <article class="mv__item reveal">
+            <h3>Misión</h3>
+            <p>Desarrollar una institución deportiva competitiva, sostenible e inclusiva, que promueva la formación futbolística, la integración comunitaria y el crecimiento de jóvenes talentos.</p>
+          </article>
+          <article class="mv__item reveal">
+            <h3>Visión</h3>
+            <p>Convertir al CD Imperial en una institución de referencia dentro del fútbol español, reconocida por su identidad, cantera, competitividad, comunidad y aspiración de alcanzar el fútbol profesional.</p>
+          </article>
+        </div>
       </div>
     </section>
 
     <!-- ===== D. NUESTRA AMBICIÓN ===== -->
     <section class="ambition section" id="ambicion" aria-labelledby="ambition-title">
-      <div class="ambition__pattern" aria-hidden="true"></div>
-      <div class="ambition__giant" aria-hidden="true"><span data-drift="-0.25">Imperial · Imperial · Imperial</span></div>
       <div class="container">
-        <p class="kicker kicker--light reveal">Nuestra ambición</p>
-        <h2 id="ambition-title" class="title title--light reveal" data-delay="1">El objetivo está claro.</h2>
-        <p class="ambition__motto reveal" data-delay="2">Del barrio<br>al fútbol <span class="text-red">profesional.</span></p>
+        <div class="ambition__head">
+          <h2 id="ambition-title" class="label label--light reveal">Nuestra ambición · El objetivo está claro</h2>
+        </div>
+        <p class="ambition__motto" aria-label="Del barrio al fútbol profesional.">
+          <span class="line" aria-hidden="true"><span>Del barrio</span></span>
+          <span class="line" aria-hidden="true"><span>al fútbol <em>profesional.</em></span></span>
+        </p>
 
-        <ol class="roadmap reveal" data-delay="3" aria-label="Etapas del proyecto">
+        <ol class="roadmap reveal" aria-label="Etapas del proyecto">
           <li class="roadmap__step is-current">
-            <span class="roadmap__node"></span>
             <span class="roadmap__tag">Estamos aquí</span>
             <h3>Fútbol regional</h3>
             <p>Segunda Aficionados · RFFM · 2026/27</p>
           </li>
           <li class="roadmap__step">
-            <span class="roadmap__node"></span>
             <span class="roadmap__tag">Objetivo futuro</span>
             <h3>Categorías superiores</h3>
             <p>Ascensos progresivos en el fútbol madrileño</p>
           </li>
           <li class="roadmap__step">
-            <span class="roadmap__node"></span>
             <span class="roadmap__tag">Objetivo futuro</span>
             <h3>Fútbol nacional</h3>
             <p>Competiciones de ámbito estatal</p>
           </li>
           <li class="roadmap__step">
-            <span class="roadmap__node"></span>
             <span class="roadmap__tag">Aspiración</span>
             <h3>Fútbol profesional</h3>
             <p>La meta que guía cada paso</p>
           </li>
         </ol>
-        <p class="ambition__disclaimer reveal">Las etapas posteriores a la actual representan objetivos del proyecto deportivo, no logros alcanzados.</p>
+        <p class="ambition__note reveal">Las etapas posteriores a la actual representan objetivos del proyecto deportivo, no logros alcanzados.</p>
       </div>
     </section>
 
     <!-- ===== E. COMUNIDAD ===== -->
     <section class="community" id="comunidad" aria-labelledby="community-title">
       <div class="community__media">
-        <img src="assets/img/match-duel.jpg" alt="Jugador del CD Imperial disputando un balón aéreo durante un partido" loading="lazy">
+        <img src="assets/img/match-duel.jpg" alt="Jugador del CD Imperial disputando un balón aéreo durante un partido" loading="lazy" id="community-img">
       </div>
       <div class="community__shade"></div>
       <div class="container community__content">
-        <p class="kicker kicker--light reveal">Comunidad Imperial</p>
-        <h2 id="community-title" class="title title--light title--xl reveal" data-delay="1">Imperial<br>también <span class="text-red">eres tú.</span></h2>
+        <p class="label label--light reveal">Comunidad Imperial</p>
+        <h2 id="community-title" class="title title--light title--xl reveal" data-delay="1">Imperial también <span class="text-red">eres tú.</span></h2>
         <p class="community__lead reveal" data-delay="2">El Imperial no se construye únicamente dentro del campo. Se construye con cada persona que comparte nuestra historia, acompaña nuestros partidos y cree en lo que estamos creando.</p>
         <div class="community__actions reveal" data-delay="3">
-          <a href="#" class="btn btn--red" id="cta-whatsapp" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="btn__icon"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/></svg>
-            Unirme a la comunidad
-          </a>
-          <a href="https://www.instagram.com/cd_imperial/" class="btn btn--ghost" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="btn__icon"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
-            Seguirnos en Instagram
-          </a>
+          <a href="#" class="btn btn--red" id="cta-whatsapp" target="_blank" rel="noopener">Unirme a la comunidad <i class="arrow"></i></a>
+          <a href="https://www.instagram.com/cd_imperial/" class="btn btn--ghost" target="_blank" rel="noopener">Seguirnos en Instagram</a>
         </div>
         <ul class="community__handles reveal" data-delay="3">
-          <li><a href="https://www.instagram.com/cd_imperial/" target="_blank" rel="noopener">Instagram <b>@cd_imperial</b></a></li>
-          <li><a href="https://www.tiktok.com/@cd_imperial" target="_blank" rel="noopener">TikTok <b>@cd_imperial</b></a></li>
-          <li><a href="https://www.youtube.com/@cd_imperial" target="_blank" rel="noopener">YouTube <b>@cd_imperial</b></a></li>
+          <li><a href="https://www.instagram.com/cd_imperial/" target="_blank" rel="noopener"><span>Instagram</span>@cd_imperial</a></li>
+          <li><a href="https://www.tiktok.com/@cd_imperial" target="_blank" rel="noopener"><span>TikTok</span>@cd_imperial</a></li>
+          <li><a href="https://www.youtube.com/@cd_imperial" target="_blank" rel="noopener"><span>YouTube</span>@cd_imperial</a></li>
         </ul>
       </div>
     </section>
@@ -242,10 +260,11 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <p class="kicker reveal">El Imperial en los medios</p>
+            <p class="label reveal">El Imperial en los medios</p>
             <h2 id="news-title" class="title reveal" data-delay="1">Noticias destacadas</h2>
           </div>
           <div class="slider-nav reveal" data-delay="2">
+            <span class="slider-count" id="news-count" aria-hidden="true">01 / 05</span>
             <button class="slider-btn" id="news-prev" aria-label="Noticia anterior"><i class="arrow arrow--left"></i></button>
             <button class="slider-btn" id="news-next" aria-label="Noticia siguiente"><i class="arrow"></i></button>
           </div>
@@ -257,30 +276,26 @@
 
     <!-- ===== G. PATROCINADORES ===== -->
     <section class="sponsors section" id="patrocinadores" aria-labelledby="sponsors-title">
-      <div class="container">
+      <div class="container sponsors__grid-wrap">
         <div class="sponsors__head">
-          <p class="kicker reveal">Patrocinadores y colaboradores</p>
-          <h2 id="sponsors-title" class="title reveal" data-delay="1">Empresas que creen<br>en nuestro camino.</h2>
+          <p class="label reveal">Patrocinadores y colaboradores</p>
+          <h2 id="sponsors-title" class="title reveal" data-delay="1">Empresas que creen en nuestro camino.</h2>
           <p class="sponsors__lead reveal" data-delay="2">Asociar tu marca al CD Imperial es formar parte de un proyecto con identidad, comunidad y una audiencia digital en pleno crecimiento.</p>
+          <a href="#" class="btn btn--dark reveal" data-delay="3" id="cta-sponsor" target="_blank" rel="noopener">Conviértete en patrocinador <i class="arrow"></i></a>
         </div>
         <div class="sponsors__grid reveal" data-delay="2" id="sponsors-grid"><!-- generado por main.js --></div>
-        <div class="sponsors__cta reveal" data-delay="3">
-          <a href="#" class="btn btn--dark" id="cta-sponsor" target="_blank" rel="noopener">Conviértete en patrocinador <i class="arrow"></i></a>
-        </div>
       </div>
     </section>
   </main>
 
   <!-- ===== Pie ===== -->
   <footer class="footer">
-    <div class="footer__band">
-      <div class="container">
-        <p class="footer__motto">Del barrio al fútbol profesional.</p>
-      </div>
+    <div class="container">
+      <p class="footer__motto" aria-label="Del barrio al fútbol profesional."><span>Del barrio al</span> <span>fútbol profesional.</span></p>
     </div>
     <div class="container footer__grid">
       <div class="footer__brand">
-        <img src="assets/img/crest-white.png" alt="Escudo del CD Imperial" width="64" height="85">
+        <img src="assets/img/crest-white.png" alt="Escudo del CD Imperial" width="48" height="64">
         <div>
           <p class="footer__name">Club Deportivo Imperial</p>
           <p class="footer__legal">Club Deportivo Elemental Imperial 2023</p>
