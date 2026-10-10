@@ -25,10 +25,8 @@ window.IMPERIAL_CONFIG = {
     instagram: "https://www.instagram.com/cd_imperial/",
     tiktok: "https://www.tiktok.com/@cd_imperial",
     youtube: "https://www.youtube.com/@cd_imperial",
-    // PENDIENTE: pegar aquí el enlace oficial de la comunidad de WhatsApp
-    // (p. ej. "https://chat.whatsapp.com/XXXXXXXX"). Mientras esté vacío,
-    // el botón "Unirme a la comunidad" lleva a Instagram.
-    whatsapp: "",
+    // Comunidad oficial de WhatsApp (botón "Unirme a la comunidad").
+    whatsapp: "https://chat.whatsapp.com/JszywmLwosSGKvacQMbRnj",
     // PENDIENTE: email de patrocinios. Vacío = mensaje directo de Instagram.
     sponsorEmail: "",
   },

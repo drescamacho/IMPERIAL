@@ -127,38 +127,54 @@
   }
 
   /* ---------- Patrocinadores ---------- */
-  var sponsorsGrid = document.getElementById("sponsors-grid");
-  if (sponsorsGrid) {
-    var sponsors = cfg.sponsors || [];
-    if (sponsors.length) {
-      sponsorsGrid.innerHTML = sponsors.map(function (s) {
-        return (
-          '<a class="sponsor" href="' + esc(s.url || "#") + '" target="_blank" rel="noopener" aria-label="' + esc(s.name) + ' en Instagram">' +
-            '<img src="' + esc(s.logo) + '" alt="' + esc(s.name) + '" loading="lazy">' +
-            '<span class="sponsor__name">' + esc(s.name) + ' <i class="arrow"></i></span>' +
-          "</a>"
-        );
-      }).join("");
-    } else {
-      var slots = ["Patrocinador principal", "Patrocinador oficial", "Colaborador", "Colaborador"];
-      sponsorsGrid.innerHTML = slots.map(function (t) {
-        return '<div class="sponsor sponsor--empty"><div><span>Tu marca aquí</span><small>' + t + "</small></div></div>";
-      }).join("");
-    }
+  var sponsorCta = links.sponsorEmail
+    ? "mailto:" + links.sponsorEmail + "?subject=" + encodeURIComponent("Patrocinio CD Imperial")
+    : "https://ig.me/m/cd_imperial";
+  var sponsorsTrack = document.getElementById("sponsors-grid");
+  if (sponsorsTrack) {
+    var logos = (cfg.sponsors || []).map(function (s) {
+      return (
+        '<a class="logo" href="' + esc(s.url || "#") + '" target="_blank" rel="noopener" aria-label="' + esc(s.name) + ' en Instagram">' +
+          '<img src="' + esc(s.logo) + '" alt="' + esc(s.name) + '" loading="lazy">' +
+          '<span class="logo__name">' + esc(s.name) + "</span>" +
+        "</a>"
+      );
+    }).join("");
+    var you = '<a class="logo logo--you" href="' + sponsorCta + '" target="_blank" rel="noopener"><span>Tu marca aquí</span></a>';
+    var set = logos + you;
+    // Se repite hasta llenar holgadamente la pantalla y luego se duplica para el bucle infinito
+    var reps = Math.max(1, Math.ceil(8 / ((cfg.sponsors || []).length + 1)));
+    var half = new Array(reps + 1).join(set);
+    sponsorsTrack.innerHTML = half + half.replace(/<a /g, '<a tabindex="-1" aria-hidden="true" ');
+  }
+  document.querySelectorAll(".js-sponsor-cta").forEach(function (a) {
+    a.href = sponsorCta;
+    if (links.sponsorEmail) a.removeAttribute("target");
+  });
+
+  var rotator = document.getElementById("rotator");
+  if (rotator && !reduceMotion) {
+    var words = ["cada partido.", "nuestra equipación.", "nuestras redes.", "nuestra historia."];
+    var wi = 0;
+    setInterval(function () {
+      var current = rotator.querySelector("span:not(.is-out)");
+      wi = (wi + 1) % words.length;
+      var next = document.createElement("span");
+      next.className = "is-in";
+      next.textContent = words[wi];
+      rotator.appendChild(next);
+      next.getBoundingClientRect();
+      next.className = "";
+      if (current) {
+        current.className = "is-out";
+        setTimeout(function () { current.remove(); }, 800);
+      }
+    }, 2600);
   }
 
   /* ---------- Enlaces configurables ---------- */
   var wa = document.getElementById("cta-whatsapp");
   if (wa) wa.href = links.whatsapp || links.instagram || "#";
-  var sp = document.getElementById("cta-sponsor");
-  if (sp) {
-    if (links.sponsorEmail) {
-      sp.href = "mailto:" + links.sponsorEmail + "?subject=" + encodeURIComponent("Patrocinio CD Imperial");
-      sp.removeAttribute("target");
-    } else {
-      sp.href = "https://ig.me/m/cd_imperial";
-    }
-  }
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
