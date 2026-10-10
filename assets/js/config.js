@@ -92,5 +92,10 @@ window.IMPERIAL_CONFIG = {
   // Añadir SOLO marcas con autorización expresa. Formato:
   // { name: "Marca", logo: "assets/img/sponsors/marca.svg", url: "https://...", tier: "Patrocinador principal" }
   // Mientras la lista esté vacía se muestran espacios reservados.
-  sponsors: [],
+  sponsors: [
+    { name: "Migra Easy", logo: "assets/img/sponsors/migraeasy.webp", url: "https://www.instagram.com/migraeasy/" },
+    { name: "Tacoholic", logo: "assets/img/sponsors/tacoholic.webp", url: "https://www.instagram.com/tacoholic.es/" },
+    { name: "Sentimiento Peruano", logo: "assets/img/sponsors/sentimiento-peruano.webp", url: "https://www.instagram.com/sentimientoperuano.es/" },
+    { name: "Sumaq Relax", logo: "assets/img/sponsors/sumaq-relax.webp", url: "https://www.instagram.com/sumaq.relax/" },
+  ],
 };

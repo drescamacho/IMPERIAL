@@ -133,8 +133,9 @@
     if (sponsors.length) {
       sponsorsGrid.innerHTML = sponsors.map(function (s) {
         return (
-          '<a class="sponsor" href="' + esc(s.url || "#") + '" target="_blank" rel="noopener" title="' + esc(s.name) + '">' +
+          '<a class="sponsor" href="' + esc(s.url || "#") + '" target="_blank" rel="noopener" aria-label="' + esc(s.name) + ' en Instagram">' +
             '<img src="' + esc(s.logo) + '" alt="' + esc(s.name) + '" loading="lazy">' +
+            '<span class="sponsor__name">' + esc(s.name) + ' <i class="arrow"></i></span>' +
           "</a>"
         );
       }).join("");
