@@ -95,5 +95,7 @@ window.IMPERIAL_CONFIG = {
     { name: "Tacoholic", logo: "assets/img/sponsors/tacoholic.webp", url: "https://www.instagram.com/tacoholic.es/" },
     { name: "Sentimiento Peruano", logo: "assets/img/sponsors/sentimiento-peruano.webp", url: "https://www.instagram.com/sentimientoperuano.es/" },
     { name: "Sumaq Relax", logo: "assets/img/sponsors/sumaq-relax.webp", url: "https://www.instagram.com/sumaq.relax/" },
+    // PENDIENTE: enlace de Instagram de Callejón del Bernabéu. Sin url, el logo no es clicable.
+    { name: "Callejón del Bernabéu", logo: "assets/img/sponsors/callejon-del-bernabeu.webp", url: "" },
   ],
 };

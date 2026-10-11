@@ -136,7 +136,9 @@
   if (sponsorsTrack) {
     var logos = (cfg.sponsors || []).map(function (s) {
       return (
-        '<a class="logo" href="' + esc(s.url || "#") + '" target="_blank" rel="noopener" aria-label="' + esc(s.name) + ' en Instagram">' +
+        (s.url
+          ? '<a class="logo" href="' + esc(s.url) + '" target="_blank" rel="noopener" aria-label="' + esc(s.name) + ' en Instagram">'
+          : '<a class="logo" role="img" aria-label="' + esc(s.name) + '">') +
           '<img src="' + esc(s.logo) + '" alt="' + esc(s.name) + '" loading="lazy">' +
           '<span class="logo__name">' + esc(s.name) + "</span>" +
         "</a>"
